@@ -1,6 +1,6 @@
 let char = new Knight ('Victor');
+let monster = new LittleMonster();
 
-
-console.log(char.name);
-console.log(char.life);
-console.log(char.attack);
+console.log(monster.name);
+console.log(monster.attack);
+console.log(monster.defense);
