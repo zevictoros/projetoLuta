@@ -87,7 +87,27 @@ class Stage {
     }
 
     doAttack(attacking, attacked){
-        console.log(`${attacking.name} está atacando ${attacked.name}`)
+        if(attacked.life <= 0){
+            console.log(`Atacando cachorro morto!`);
+            return;
+        } if( attacking.life <= 0){
+            console.log('Morto não fala!')
+            return;
+        } 
+
+        let attackFactor = (Math.random() * 2).toFixed(2);
+        let defenseFactor = (Math.random() * 2).toFixed(2);
+        
+
+        let actualAttack = attacking.attack * attackFactor;
+        let actualDefense = attacking.defense * defenseFactor;
+        
+        if(actualAttack > actualDefense){
+            attacked.life -= actualAttack;
+            console.log(`${attacking.name} disse: Não guenta jogar não desce pro play!`)
+        } else{
+            console.log (`${attacked.name} disse: Você é fraco, lhe falta ódio!`)
+        }
 
         this.update();
     }
